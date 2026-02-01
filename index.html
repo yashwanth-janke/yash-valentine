@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be Yashwanth's Valentine! 💕</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💕</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 105, 180, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(255, 192, 203, 0.3) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.02); }
+        }
+
+        .container {
+            background: linear-gradient(145deg, #ffffff 0%, #fff5f7 100%);
+            padding: 70px 90px;
+            border-radius: 0;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3),
+                        0 0 0 1px rgba(255, 255, 255, 0.8) inset,
+                        0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            border: none;
+        }
+
+        .icon-container {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 35px;
+            position: relative;
+            animation: bounce 2.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(-5deg); }
+            75% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .main-heart {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin: 0 auto;
+            filter: drop-shadow(0 15px 30px rgba(255, 105, 180, 0.4));
+        }
+
+        .main-heart::before,
+        .main-heart::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff758c 0%, #ff4757 50%, #ff3838 100%);
+            border-radius: 50px 50px 0 0;
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+                filter: brightness(1);
+            }
+            50% { 
+                transform: scale(1.08);
+                filter: brightness(1.1);
+            }
+        }
+
+        .main-heart::before {
+            left: 25px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .main-heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #fff 0%, #ffeb3b 100%);
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
+        }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                opacity: 0; 
+                transform: scale(0) rotate(0deg);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1) rotate(180deg);
+            }
+        }
+
+        .sparkle:nth-child(1) { top: 5px; left: 15px; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 25px; right: 10px; animation-delay: 0.4s; }
+        .sparkle:nth-child(3) { bottom: 15px; left: 25px; animation-delay: 0.8s; }
+        .sparkle:nth-child(4) { top: 45%; right: 5px; animation-delay: 1.2s; }
+        .sparkle:nth-child(5) { bottom: 30px; right: 30px; animation-delay: 1.6s; }
+
+        h1 {
+            font-size: 38px;
+            margin-bottom: 45px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            letter-spacing: -0.8px;
+            line-height: 1.4;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+            height: 90px;
+        }
+
+        button {
+            padding: 18px 55px;
+            font-size: clamp(16px, 3vw, 22px);
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            transform: scale(1.08) translateY(-2px);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff4757 50%, #ff3838 100%);
+            color: white;
+            position: fixed;
+            transition: all 0.01s ease;
+            pointer-events: none;
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.5),
+                        0 0 0 3px rgba(255, 255, 255, 0.3) inset;
+            z-index: 9999;
+        }
+
+        #noBtn {
+            background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(95, 39, 205, 0.4),
+                        0 0 0 3px rgba(255, 255, 255, 0.3) inset;
+        }
+        
+        #noBtn:hover {
+            box-shadow: 0 15px 40px rgba(95, 39, 205, 0.6),
+                        0 0 0 3px rgba(255, 255, 255, 0.4) inset;
+            background: linear-gradient(135deg, #6c5ce7 0%, #5f27cd 100%);
+        }
+
+        .note {
+            color: #999;
+            font-size: 15px;
+            margin-top: 20px;
+            font-weight: 500;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .signature {
+            margin-top: 50px;
+            font-size: 18px;
+            color: #c44569;
+            font-weight: 600;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .signature::before {
+            content: '~ ';
+            color: #ff4757;
+        }
+
+        #result {
+            margin-top: 35px;
+            font-size: clamp(20px, 4vw, 32px);
+            font-weight: 800;
+            color: #ff4757;
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+            line-height: 1.5;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp 8s ease-in infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% { 
+                opacity: 0;
+                transform: translateY(0) rotate(0deg);
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% { 
+                opacity: 0;
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+
+        .floating-heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .floating-heart:nth-child(2) { left: 25%; animation-delay: 2s; font-size: 25px; }
+        .floating-heart:nth-child(3) { left: 40%; animation-delay: 4s; }
+        .floating-heart:nth-child(4) { left: 55%; animation-delay: 1s; font-size: 30px; }
+        .floating-heart:nth-child(5) { left: 70%; animation-delay: 3s; }
+        .floating-heart:nth-child(6) { left: 85%; animation-delay: 5s; font-size: 22px; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 50px 40px;
+                border-radius: 0;
+                border: none;
+            }
+
+            .icon-container {
+                width: 120px;
+                height: 120px;
+                margin: 0 auto 25px;
+            }
+
+            .main-heart {
+                width: 80px;
+                height: 80px;
+            }
+
+            .main-heart::before,
+            .main-heart::after {
+                width: 40px;
+                height: 64px;
+            }
+
+            .main-heart::before {
+                left: 20px;
+            }
+
+            .sparkle {
+                width: 10px;
+                height: 10px;
+            }
+
+            h1 {
+                margin-bottom: 35px;
+            }
+
+            .buttons {
+                gap: 20px;
+                height: 75px;
+                margin-bottom: 20px;
+            }
+
+            button {
+                padding: 15px 40px;
+            }
+
+            .note {
+                font-size: 13px;
+            }
+
+            .signature {
+                margin-top: 40px;
+                font-size: 16px;
+            }
+
+            #result {
+                margin-top: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0;
+            }
+
+            .container {
+                padding: 40px 25px;
+                border-radius: 0;
+            }
+
+            .icon-container {
+                width: 100px;
+                height: 100px;
+                margin: 0 auto 20px;
+            }
+
+            .main-heart {
+                width: 70px;
+                height: 70px;
+            }
+
+            .main-heart::before,
+            .main-heart::after {
+                width: 35px;
+                height: 56px;
+            }
+
+            .main-heart::before {
+                left: 17.5px;
+            }
+
+            .sparkle {
+                width: 8px;
+                height: 8px;
+            }
+
+            h1 {
+                margin-bottom: 30px;
+            }
+
+            .buttons {
+                gap: 15px;
+                height: 65px;
+                flex-direction: column;
+                height: auto;
+            }
+
+            button {
+                padding: 12px 35px;
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .note {
+                font-size: 12px;
+                margin-top: 15px;
+            }
+
+            .signature {
+                margin-top: 30px;
+                font-size: 14px;
+            }
+
+            #result {
+                margin-top: 20px;
+            }
+
+            .floating-heart {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts">
+        <div class="floating-heart">💕</div>
+        <div class="floating-heart">💖</div>
+        <div class="floating-heart">💗</div>
+        <div class="floating-heart">💝</div>
+        <div class="floating-heart">💕</div>
+        <div class="floating-heart">💖</div>
+    </div>
+    
+    <div class="container">
+        <div class="icon-container">
+            <div class="main-heart"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+        </div>
+        <h1>Hey Cutie!! will you be my valentine?</h1>
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+        <p class="note">Some buttons have commitment issues 🏃‍♂️</p>
+        <div id="result"></div>
+        <div class="signature">From: Yashwanth 💕</div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const result = document.getElementById('result');
+        const buttonsContainer = document.querySelector('.buttons');
+        const container = document.querySelector('.container');
+
+        // Set initial positions - center of screen
+        yesBtn.style.left = '50%';
+        yesBtn.style.top = '50%';
+        yesBtn.style.transform = 'translate(-50%, -50%)';
+
+        // Function to move the Yes button away from cursor - ULTRA AGGRESSIVE + UNPREDICTABLE
+        function moveYesButton(e) {
+            const rect = yesBtn.getBoundingClientRect();
+            const btnCenterX = rect.left + rect.width / 2;
+            const btnCenterY = rect.top + rect.height / 2;
+            
+            const distance = Math.sqrt(
+                Math.pow(e.clientX - btnCenterX, 2) + 
+                Math.pow(e.clientY - btnCenterY, 2)
+            );
+
+            // Only move when cursor is within 250px (much closer than before)
+            if (distance < 250) {
+                // Calculate direction away from cursor
+                const angleFromCursor = Math.atan2(
+                    btnCenterY - e.clientY,
+                    btnCenterX - e.clientX
+                );
+
+                // Add random angle variation to make it unpredictable
+                const randomAngle = angleFromCursor + (Math.random() - 0.5) * Math.PI / 2;
+
+                // Move button FAR when triggered - the closer, the further it jumps
+                const moveDistance = Math.max(500, 1200 - distance * 2);
+                let newX = rect.left + Math.cos(randomAngle) * moveDistance;
+                let newY = rect.top + Math.sin(randomAngle) * moveDistance;
+
+                // Keep button within viewport bounds with LARGE padding to avoid edges
+                const padding = 100;
+                const maxX = window.innerWidth - rect.width - padding;
+                const maxY = window.innerHeight - rect.height - padding;
+
+                newX = Math.max(padding, Math.min(maxX, newX));
+                newY = Math.max(padding, Math.min(maxY, newY));
+
+                // If button would be at edge, jump to opposite side randomly
+                if (newX <= padding || newX >= maxX || newY <= padding || newY >= maxY) {
+                    newX = padding + Math.random() * (window.innerWidth - rect.width - padding * 2);
+                    newY = padding + Math.random() * (window.innerHeight - rect.height - padding * 2);
+                }
+
+                yesBtn.style.left = newX + 'px';
+                yesBtn.style.top = newY + 'px';
+                yesBtn.style.transform = 'none';
+            }
+        }
+
+        // Track cursor movement
+        document.addEventListener('mousemove', moveYesButton);
+
+        // Track touch movement for mobile devices
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 0) {
+                const touch = e.touches[0];
+                moveYesButton({ clientX: touch.clientX, clientY: touch.clientY });
+            }
+        });
+
+        document.addEventListener('touchmove', function(e) {
+            if (e.touches.length > 0) {
+                const touch = e.touches[0];
+                moveYesButton({ clientX: touch.clientX, clientY: touch.clientY });
+            }
+        });
+
+        // Prevent clicking Yes button - it's IMPOSSIBLE
+        yesBtn.addEventListener('mouseenter', function() {
+            yesBtn.style.pointerEvents = 'none';
+        });
+
+        yesBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            moveYesButton({ clientX: touch.clientX, clientY: touch.clientY });
+            return false;
+        }, { passive: false });
+
+        yesBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+
+        // Handle No button click
+        noBtn.addEventListener('click', function() {
+            result.style.display = 'block';
+            result.textContent = '😭I know no one loves me 💔';
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+            document.querySelector('.note').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
