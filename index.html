@@ -154,6 +154,7 @@
             font-weight: 700;
             letter-spacing: -0.8px;
             line-height: 1.4;
+            word-wrap: break-word;
         }
 
         .buttons {
@@ -190,7 +191,7 @@
         #yesBtn {
             background: linear-gradient(135deg, #ff6b9d 0%, #ff4757 50%, #ff3838 100%);
             color: white;
-            position: fixed;
+            position: fixed !important;
             transition: all 0.01s ease;
             pointer-events: none;
             box-shadow: 0 10px 30px rgba(255, 71, 87, 0.5),
@@ -358,7 +359,7 @@
             }
 
             .container {
-                padding: 40px 25px;
+                padding: 50px 20px;
                 border-radius: 0;
             }
 
@@ -389,20 +390,26 @@
             }
 
             h1 {
+                font-size: 24px;
                 margin-bottom: 30px;
+                line-height: 1.5;
+                padding: 0 10px;
             }
 
             .buttons {
                 gap: 15px;
-                height: 65px;
-                flex-direction: column;
                 height: auto;
+                min-height: 60px;
+                flex-direction: row;
+                flex-wrap: wrap;
             }
 
             button {
-                padding: 12px 35px;
-                width: 100%;
-                max-width: 200px;
+                padding: 12px 25px;
+                font-size: 16px;
+                min-width: 100px;
+                max-width: 140px;
+                flex: 0 0 auto;
             }
 
             .note {
